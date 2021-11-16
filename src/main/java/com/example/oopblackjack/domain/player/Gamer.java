@@ -16,7 +16,7 @@ public class Gamer {
     }
 
     public boolean isStay(int input) {
-        return input == 1;
+        return input == 2;
     }
 
     public String showGamerHand() {
