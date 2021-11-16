@@ -14,7 +14,7 @@ public class Gamer {
         point += card.getPoint();
     }
 
-    public String showGamerHand() {
+    public String showHand() {
         StringBuilder stringBuilder = new StringBuilder();
         GamerHand.stream().map(Card::toString).forEach(stringBuilder::append);
         return stringBuilder.toString();
@@ -22,5 +22,13 @@ public class Gamer {
 
     public boolean isBust() {
         return point > 21;
+    }
+
+    public List<Card> getGamerHand() {
+        return GamerHand;
+    }
+
+    public int getPoint() {
+        return point;
     }
 }
