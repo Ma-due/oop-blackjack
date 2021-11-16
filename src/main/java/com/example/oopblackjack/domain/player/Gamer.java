@@ -19,6 +19,12 @@ public class Gamer {
         return input == 1;
     }
 
+    public String showGamerHand() {
+        StringBuilder stringBuilder = new StringBuilder();
+        GamerHand.stream().map(Card::toString).forEach(stringBuilder::append);
+        return stringBuilder.toString();
+    }
+
     private boolean isBust() {
         return point > 21;
     }

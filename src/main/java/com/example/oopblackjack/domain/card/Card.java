@@ -47,7 +47,7 @@ public class Card {
     }
 
     public String toString() {
-        return pattern + denomination.mark;
+        return "Card = " + pattern + " " + denomination.mark + "\n";
     }
 
     public int getPoint() {
