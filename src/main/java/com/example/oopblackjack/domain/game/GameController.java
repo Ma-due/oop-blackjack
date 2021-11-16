@@ -10,7 +10,6 @@ public class GameController {
     private final Game game;
 
     private boolean gameEndContion = false;
-    private boolean turn = true;
 
     public GameController() {
         CardDeck cardDeck = new CardDeck();
@@ -18,16 +17,15 @@ public class GameController {
         Dealer dealer = new Dealer();
         InputView inputView = new InputView();
 
-        game = new Game(cardDeck, gamer, dealer, inputView);
+        game = new Game(gamer, dealer, inputView, cardDeck);
     }
 
     public void run() {
         gameEndContion = game.firstDraw();
 
         while(!gameEndContion) {
-            gameEndContion = game.turnDraw(turn);
-
-            turn = !turn;
+            if(game.askStay()) break;
+            gameEndContion = game.turnPlay();
         }
     }
 }

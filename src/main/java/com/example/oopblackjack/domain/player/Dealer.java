@@ -9,17 +9,16 @@ public class Dealer {
     private final List<Card> dealerHand = new ArrayList<>();
     private int point = 0;
 
-    public boolean drawingCard(Card card) {
+    public void drawingCard(Card card) {
         dealerHand.add(card);
         point += card.getPoint();
-        return isBust();
     }
 
     public boolean mustDraw() {
         return point < 17;
     }
 
-    private boolean isBust() {
+    public boolean isBust() {
         return point > 21;
     }
 }

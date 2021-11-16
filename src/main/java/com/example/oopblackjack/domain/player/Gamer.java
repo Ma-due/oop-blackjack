@@ -9,14 +9,9 @@ public class Gamer {
     private final List<Card> GamerHand = new ArrayList<>();
     private int point = 0;
 
-    public boolean drawingCard(Card card) {
+    public void drawingCard(Card card) {
         GamerHand.add(card);
         point += card.getPoint();
-        return isBust();
-    }
-
-    public boolean isStay(int input) {
-        return input == 1;
     }
 
     public String showGamerHand() {
@@ -25,7 +20,7 @@ public class Gamer {
         return stringBuilder.toString();
     }
 
-    private boolean isBust() {
+    public boolean isBust() {
         return point > 21;
     }
 }
