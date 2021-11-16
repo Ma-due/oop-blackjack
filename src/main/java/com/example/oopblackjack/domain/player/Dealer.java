@@ -15,7 +15,7 @@ public class Dealer {
         return isBust();
     }
 
-    public boolean isStay() {
+    public boolean mustDraw() {
         return point < 17;
     }
 
