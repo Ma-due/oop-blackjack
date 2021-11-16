@@ -9,17 +9,25 @@ public class GameController {
 
     private final Game game;
 
-    private boolean GameEndContion = false;
+    private boolean gameEndContion = false;
+    private boolean turn = true;
 
     public GameController() {
         CardDeck cardDeck = new CardDeck();
         Gamer gamer = new Gamer();
         Dealer dealer = new Dealer();
         InputView inputView = new InputView();
+
         game = new Game(cardDeck, gamer, dealer, inputView);
     }
 
     public void run() {
-        GameEndContion = game.firstDraw();
+        gameEndContion = game.firstDraw();
+
+        while(!gameEndContion) {
+            gameEndContion = game.turnDraw(turn);
+
+            turn = !turn;
+        }
     }
 }

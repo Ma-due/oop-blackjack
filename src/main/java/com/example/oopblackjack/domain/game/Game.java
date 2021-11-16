@@ -28,7 +28,26 @@ public class Game {
             dealerBustOpt = dealer.drawingCard(drawCard());
         }
 
-        return endGame(gamerBustOpt, dealerBustOpt);
+        return endGameCondition(gamerBustOpt, dealerBustOpt);
+    }
+
+    public boolean turnDraw(boolean turn) {
+        if(turn) gamerBustOpt = gamerDraw();
+        else dealerBustOpt = dealerDraw();
+
+        return endGameCondition(gamerBustOpt, dealerBustOpt);
+    }
+    
+    private boolean dealerDraw() {
+        if(dealer.mustDraw()) return dealer.drawingCard(drawCard());
+
+        return false;
+    }
+
+    private boolean gamerDraw() {
+        if(!askStay()) return gamer.drawingCard(drawCard());
+
+        return true;
     }
 
     public boolean askStay() {
@@ -39,7 +58,7 @@ public class Game {
         return cardDeck.drawCard();
     }
 
-    private boolean endGame(boolean gamerBustOpt, boolean dealerBustOpt) {
+    private boolean endGameCondition(boolean gamerBustOpt, boolean dealerBustOpt) {
         return gamerBustOpt || dealerBustOpt;
     }
 }
