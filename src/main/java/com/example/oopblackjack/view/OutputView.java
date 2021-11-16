@@ -11,7 +11,7 @@ public class OutputView {
         System.out.println(name + "님의 차례 입니다.");
     }
 
-    public static void DrawMessage(String name) {
+    public static void drawMessage(String name) {
         System.out.println(name + "님이 카드를 뽑았습니다.");
     }
 
@@ -21,5 +21,9 @@ public class OutputView {
 
     public static void winningMessage(String name) {
         System.out.println(name + "이 승리하였습니다.");
+    }
+
+    public static void handList() {
+
     }
 }

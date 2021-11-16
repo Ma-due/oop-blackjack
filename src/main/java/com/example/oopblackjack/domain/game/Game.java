@@ -40,7 +40,7 @@ public class Game {
     }
 
     private void dealerTurn() {
-        if(dealer.mustDraw()) dealer.drawingCard(drawCard());
+        if (dealer.mustDraw()) dealer.drawingCard(drawCard());
     }
 
     private void gamerTurn() {
@@ -53,5 +53,16 @@ public class Game {
 
     private boolean endGameCondition() {
         return gamer.isBust() || dealer.isBust();
+    }
+
+    public String makeResult() {
+        GameResult gameResult = new GameResult(gamer.getPoint(), dealer.getPoint());
+        if (gameResult.gamerBust() && gameResult.dealerBust()) return "DRAW";
+        if (gameResult.gamerBust()) return "gamer";
+        if (gameResult.dealerBust()) return "dealer";
+        if (gameResult.isDrawGame()) return "draw";
+        if (gameResult.getWinner()) return "dealer";
+
+        return "gamer";
     }
 }

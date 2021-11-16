@@ -4,9 +4,9 @@ import com.example.oopblackjack.domain.card.CardDeck;
 import com.example.oopblackjack.domain.player.Dealer;
 import com.example.oopblackjack.domain.player.Gamer;
 import com.example.oopblackjack.view.InputView;
+import com.example.oopblackjack.view.OutputView;
 
 public class GameController {
-
     private final Game game;
 
     private boolean gameEndContion = false;
@@ -27,5 +27,8 @@ public class GameController {
             if(game.askStay()) break;
             gameEndContion = game.turnPlay();
         }
+
+        String s = game.makeResult();
+        OutputView.winningMessage(s);
     }
 }
